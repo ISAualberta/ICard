@@ -134,10 +134,10 @@ const MyICardPage = (props) => {
   const theme = statusColors[props.status];
   return (
     <ImageBackground
-      source={require("../../../assets/Background.png")}
-      resizeMode="cover"
+    source={require("../../../assets/Background.png")}
+      resizeMode="repeat"
       style={styles.backgroundImage}
-    >
+      imageStyle= {{opacity:0.2}}>
       <View id="fitContent" style={styles.fitContent}>
         <Card status={props.status} msg={props.msg} />
         <View
@@ -228,6 +228,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
+    // backgroundColor:'rgba(0, 0, 100, 0.2) !important'
   },
   avatar: {
     aspectRatio: "1/1",

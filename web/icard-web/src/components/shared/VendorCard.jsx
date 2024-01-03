@@ -31,6 +31,7 @@ const VendorCard = ({vendorName, location, description, vendorImage, contact}) =
                         </Pressable>
                         <ScrollView>
                             <View onStartShouldSetResponder={() => true} style={popUpStyles.modalContentContainer}>
+                                {/* {vendorImage?(<Image style={popUpStyles.logo} source={{uri: vendorImage}}></Image>):<></>} */}
                                 <Image style={popUpStyles.logo} source={{uri: vendorImage}}></Image>
 
                                 <View style={{flexShrink: 2, paddingHorizontal: 10}}>
@@ -57,7 +58,8 @@ const VendorCard = ({vendorName, location, description, vendorImage, contact}) =
             </Modal>
 
             <Pressable style={styles.cardContainer} onPress={() => setPopupOpen(true)}>
-                <Image source={{uri: vendorImage}} style={styles.logoImage}></Image>
+                {vendorImage?(<Image source={{uri: vendorImage}} style={styles.logoImage}></Image>):<></>}
+                
 
                 <View style={styles.textContainer}>
                     <Text style={styles.title}>
@@ -90,14 +92,15 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      width: win.width - 50,
+      maxWidth: '400px',
       minHeight: win.height/5,
       backgroundColor: 'white',
       shadowColor: '#888888',
       shadowOpacity: 0.7,
       shadowRadius: 2,  
-      shadowOffset: {width: 0, height: 5},
-      elevation: 1
+    //   shadowOffset: {width: 4, height:4},
+      elevation: 1,
+      margin: '5px'
     },
 
     textContainer: {

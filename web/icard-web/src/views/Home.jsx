@@ -18,10 +18,7 @@ import axios from "axios";
 import { options, url } from "../data/vendorMockData";
 import { getUser, storeUser } from "../utilites/StoreUser";
 import AuthContext from "../context/AuthContext";
-import {
-  useFocusEffect,
-  useNavigationState,
-} from "@react-navigation/native";
+import { useFocusEffect, useNavigationState } from "@react-navigation/native";
 import { storeDate, getDate } from "../utilites/StoreDate";
 import {
   getNavigationCache,
@@ -54,8 +51,9 @@ const Home = ({ navigation }) => {
   return (
     <ImageBackground
       source={require("../../assets/Background.png")}
-      resizeMode="cover"
+      resizeMode="repeat"
       style={styles.backgroundImage}
+      imageStyle= {{opacity:0.2}}
     >
       <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
         <ScrollView>
@@ -73,29 +71,31 @@ const Home = ({ navigation }) => {
               style={styles.signOut}
             />
           </TouchableOpacity>
-          <Image
-            source={require("../../assets/ISA-logo.png")}
-            style={styles.logo}
-          />
-          <Text style={styles.title}>
-            Welcome{"\n"}to ISA's{"\n"}mobile app
-          </Text>
-          <Text style={styles.headingDiscoverDiscover}>Discover</Text>
-          <DiscoverBar />
-          <View style={styles.row}>
-            <Text style={styles.headingVendor}>Vendors</Text>
-
-            <Text
-              style={styles.vendorText}
-              onPress={() => navigation.navigate("Vendors")}
-            >
-              See All
+          <View style={{marginLeft: 25}}>
+            <Image
+              source={require("../../assets/ISA-logo.png")}
+              style={styles.logo}
+            />
+            <Text style={styles.title}>
+              Welcome{"\n"}to ISA's{"\n"}mobile app
             </Text>
+            <Text style={styles.headingDiscoverDiscover}>Discover</Text>
+            <DiscoverBar />
+            <View style={styles.row}>
+              <Text style={styles.headingVendor}>Vendors</Text>
+
+              <Text
+                style={styles.vendorText}
+                onPress={() => navigation.navigate("Vendors")}
+              >
+                See All
+              </Text>
+            </View>
+            <VendorList
+              searchPhrase={searchPhrase}
+              data={vendorData.slice(0, 3)}
+            />
           </View>
-          <VendorList
-            searchPhrase={searchPhrase}
-            data={vendorData.slice(0, 3)}
-          />
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>
@@ -113,26 +113,29 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 40,
-    marginLeft: 25,
+    // marginLeft: 25,
     color: colors.darkGray,
+    fontFamily: 'Poppins_700Bold'
   },
   headingVendor: {
     fontSize: 20,
     fontWeight: "bold",
-    marginLeft: 25,
+    // marginLeft: 25,
     color: colors.darkGray,
+    fontFamily: 'Poppins_700Bold'
   },
   title: {
-    marginLeft: 25,
+    // marginLeft: 25,
     fontSize: 35,
     fontWeight: "bold",
     marginTop: 11,
+    fontFamily: 'Poppins_700Bold'
   },
   logo: {
     width: 100,
     height: 83,
     resizeMode: "stretch",
-    marginLeft: 25,
+    // marginLeft: 25,
     marginTop: 7,
   },
   backgroundImage: {

@@ -17,9 +17,10 @@ const PageNotFound = ({navigation}) => {
 
   return (
       <ImageBackground
-      source={require('../../assets/Background.png')}
-      resizeMode="cover"
-      style={styles.backgroundImage}>
+      source={require("../../../assets/Background.png")}
+      resizeMode="repeat"
+      style={styles.backgroundImage}
+      imageStyle= {{opacity:0.2}}>
       <SafeAreaView style={{flex: 1}} edges={['top']}>
       <ScrollView>
       {// TODO: User == null logic and relevant functions missing

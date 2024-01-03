@@ -1,4 +1,5 @@
 'use strict';
+import { Poppins_500Medium } from '@expo-google-fonts/poppins';
 import {StyleSheet} from 'react-native';
 
 const colors = {
@@ -6,7 +7,7 @@ const colors = {
   lightGreen: '#D9FFDC',
   white: '#FFFFFF',
   lightGray: '#CBCBCB',
-  darkGray: '#737373',
+  darkGray: 'black',
   black: '#000000',
   red: '#EF6464',
   yellow: '#FAD233',
@@ -29,6 +30,7 @@ const globalStyleSheet = StyleSheet.create({
   },
   text: {
     color: colors.black,
+    fontFamily: 'Poppins_400Regular',
   },
   tabBar: {
     borderTopWidth: 1,

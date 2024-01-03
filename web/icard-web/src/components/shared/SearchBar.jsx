@@ -70,6 +70,8 @@ const SearchBar = ({
 const styles = StyleSheet.create({
   container: {
     margin: 24,
+    marginLeft: 0,
+    marginRight: 0,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
@@ -83,6 +85,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 15,
     alignItems: "center",
+    // border: '2px solid #888888',
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
+    // shadowOffset: {width: 4, height:4},
+    // elevation: 1,
+    // margin: '5px'
   },
   searchBar__clicked: {
     padding: 10,

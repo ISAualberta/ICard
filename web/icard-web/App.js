@@ -12,7 +12,15 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CLIENT_ID } from "@env";
 import { navigationRef } from "./src/utilites/RootNavigation";
 import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'white',
+  },
+};
 export default function App() {
   const [user, setUser] = useState(null);
   const value = { user, setUser };
@@ -30,7 +38,7 @@ export default function App() {
     <GoogleOAuthProvider clientId={CLIENT_ID}>
       <AuthContext.Provider value={value}>
         <SafeAreaProvider>
-          <NavigationContainer ref={navigationRef}>
+          <NavigationContainer theme={MyTheme} ref={navigationRef}>
             <Index />
           </NavigationContainer>
         </SafeAreaProvider>

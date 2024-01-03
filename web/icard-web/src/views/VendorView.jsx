@@ -2,11 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { options, url } from "../data/vendorMockData";
 import VendorList from "../components/shared/VendorList";
-import { ImageBackground, Text, StyleSheet } from "react-native";
+import { ImageBackground, Text, StyleSheet, View } from "react-native";
 import { colors } from "../utilites/Theme";
 import SearchBar from "../components/shared/SearchBar";
 import { useFocusEffect } from "@react-navigation/native";
 import { setNavigationCache } from "../utilites/NavigationCache";
+// import { View } from "react-native-web";
 
 const VendorView = () => {
   const [list, setList] = useState([]);
@@ -32,19 +33,24 @@ const VendorView = () => {
   }, []);
 
   return (
+
     <ImageBackground
-      style={styles.backgroundImage}
       source={require("../../assets/Background.png")}
+      resizeMode="repeat"
+      style={styles.backgroundImage}
+      imageStyle= {{opacity:0.2}}
     >
-      <Text style={styles.titleText}>Vendors</Text>
-      <SearchBar
-        nativeID="searchBar"
-        searchPhrase={searchPhrase}
-        setSearchPhrase={setSearchPhrase}
-        clicked={clicked}
-        setClicked={setClicked}
-      />
-      <VendorList searchPhrase={searchPhrase} data={list} />
+      <View style={{marginLeft:'24px'}}>
+        <Text style={styles.titleText}>Vendors</Text>
+        <SearchBar
+          nativeID="searchBar"
+          searchPhrase={searchPhrase}
+          setSearchPhrase={setSearchPhrase}
+          clicked={clicked}
+          setClicked={setClicked}
+        />
+        <VendorList searchPhrase={searchPhrase} data={list} />
+        </View>
     </ImageBackground>
   );
 };
@@ -59,7 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     marginTop: 64,
-    marginHorizontal: 24,
+    // marginHorizontal: 24,
     alignSelf: "flex-start",
   },
 });
