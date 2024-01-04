@@ -16,9 +16,6 @@ import * as RootNavigation from "../utilites/RootNavigation";
 import { View } from "react-native-web";
 
 const Tab = createBottomTabNavigator();
-const Loading = () => {
-  return <View>Loading</View>;
-};
 
 import {
   useFonts,
@@ -81,13 +78,6 @@ export default function Index({}) {
 
   return (
     <Tab.Navigator screenOptions={ScreenOption} styles={{fontFamily: "Poppins_600SemiBold"}}>
-      <Tab.Screen
-        name="Loading"
-        component={Loading}
-        options={{
-          tabBarItemStyle: { display: "none" },
-        }}
-      />
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Vendors" component={VendorView} />
       {user === null ? (
