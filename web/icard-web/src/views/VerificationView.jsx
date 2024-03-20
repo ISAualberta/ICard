@@ -75,8 +75,9 @@ const VerificationView = ({ navigation }) => {
   return (
     <ImageBackground
       source={require("../../assets/Background.png")}
-      resizeMode="cover"
+      resizeMode="repeat"
       style={styles.backgroundImage}
+      imageStyle= {{opacity:0.2}}
     >
       <SafeAreaView style={styles.container} edges={["top"]}>
         <View style={styles.header}>
