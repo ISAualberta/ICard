@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native-web";
+import { StyleSheet, View, FlatList, Dimensions } from "react-native-web";
 import VendorCard from "./VendorCard";
 
 const Item = ({ itemData }) => (
@@ -55,9 +55,10 @@ const VendorList = ({ searchPhrase, data }) => {
   return (
     <View style={styles.container}>
       <FlatList
-        showsVerticalScrollIndicator={true}
+        // showsVerticalScrollIndicator={true}
         data={data}
         renderItem={renderItem}
+        numColumns={1}
         keyExtractor={(item) => item._id}
         contentContainerStyle={styles.contentContainer}
       />
@@ -67,12 +68,21 @@ const VendorList = ({ searchPhrase, data }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // backgroundColor: 'blue',
     alignItems: "start",
-    // justifyContent: "center",
+    justifyContent: "center",
+    height: Dimensions.get('window').height-300,
+    // width: Dimensions.get('window').width,
+    // height: '100%',
+    // width: "60%",
+    marginBottom: '150px'
   },
   contentContainer: {
-    // justifyContent: "center",
+    // overflowX: 'scroll',
+    // overflowY: 'scroll',
+    // width: "10%",
+    // backgroundColor: 'red'
+    justifyContent: "left",
     // alignItems: "center",
   },
 });
